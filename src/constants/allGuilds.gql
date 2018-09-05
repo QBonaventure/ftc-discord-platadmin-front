@@ -1,0 +1,11 @@
+query AllGuilds {
+  allGuilds {
+    edges {
+      node {
+        id
+        name
+        isActive
+      }
+    }
+  }
+}
