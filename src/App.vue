@@ -31,3 +31,12 @@
         }
     });
 </script>
+
+
+<style lang="scss">
+    @import 'layouts/var.scss';
+    
+    h1 {
+      color: $ftc-red;
+    }
+</style>
