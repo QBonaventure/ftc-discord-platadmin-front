@@ -1,3 +1,1 @@
-import gql from 'graphql-tag'
-
-export const ALL_GUILDS_QUERY = gql`query { allGuilds }`
+export const ALL_GUILDS_QUERY = `query AllGuilds { allGuilds { edges { node { id name isActive } } } }`

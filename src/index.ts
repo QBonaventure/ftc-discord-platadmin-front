@@ -1,29 +1,17 @@
 import Vue from 'vue';
-import GuildsList from "./components/GuildsList.vue";
-import VueRouter from 'vue-router';
-import App from "./App.vue";
+import router from './router';
+import App from './App.vue';
+
+import Default from "./layouts/Default.vue";
+
+Vue.component('default-layout', Default);
 
 
-// const router = new VueRouter({
-//   mode: 'hash',
-//   routes: [
-//     { path: '/', component: GuildsList },
-//     { path: '/guilds', component: GuildsList }
-// //    { path: '/config', component: Config },
-//   ],
-// });
+Vue.config.productionTip = false
 
-
-let app = new Vue({
-    // router,
-    el: "#app",
-//    provide: apolloProvider.provide(),
-    template: `
-    <div>
-        <guilds-list />
-    </div>`,
-    data: { },
-    components: {
-        GuildsList
-    }
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
 });
