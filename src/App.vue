@@ -34,9 +34,69 @@
 
 
 <style lang="scss">
-    @import 'layouts/var.scss';
+    @import 'layouts/var';
+
+    html, body, main, div#app {
+      height: 100%;
+      margin: 0;
+    }
     
+    div#app > div.wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+
+    div#header {
+      background-color: $ftc-white;
+        width: 100%;
+        height: $header-height;
+        float: left;
+        position: absolute;
+
+        a, nav {
+          font-size: 20px;
+          float: left;
+          color: $ftc-red;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          &:visited {
+            color: $ftc-red;
+          }
+
+          ul {
+              list-style-type: none;
+              height: calc(#{$header-height} - 10px);
+              padding: 5px;
+              margin: 0;
+
+              li {
+                float: left;
+                height: calc(100% - 20px);
+                padding: 10px;
+                border-left: 1px solid $ftc-light-grey;
+             }
+          }
+        }
+    }
+
+    a#logo {
+        img {
+            width: 150px;
+        }
+    }
+
+    
+
     h1 {
-      color: $ftc-red;
+      text-align: center;
+      color: $ftc-dark-grey;
+      margin: 0 0 10px;
+      padding: 15px 0;
     }
 </style>

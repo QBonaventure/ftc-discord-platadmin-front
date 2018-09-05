@@ -42,18 +42,5 @@ export default Vue.extend({
 
 
 <style lang="scss">
-$blah: #ece5e5;
 
-  body {
-    margin: 0;
-  }
-
-  h1 {
-    text-align: center;
-    background-color: #222222;
-    color: #ece5e5;
-    margin: 0 0 10px;
-    padding: 15px 0;
-    color: $blah;
-  }
 </style>
