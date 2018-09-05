@@ -1,16 +1,17 @@
+<!-- src/App.vue -->
 <template>
   <div id="app">
-    <link-list></link-list>
   </div>
 </template>
 
-<script>
-  import LinkList from './components/LinkList'
+<script lang="ts">
+import Vue from "vue";
+import GuildsList from "./components/GuildsList.vue";
 
-  export default {
+export default Vue.extend({
     name: 'app',
     components: {
-      LinkList
+      GuildsList
     }
-  }
+});
 </script>
