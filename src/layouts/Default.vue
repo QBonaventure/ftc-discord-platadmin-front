@@ -1,5 +1,8 @@
 <template>
     <div>
+        <router-link to="/" id="logo">
+            <img src="https://cdn.fearthec.io/ff491c85ad3e3aeb20723e6448ac2e2b/images/mark.png" />
+        </router-link>
         <nav-bar />
         <slot />
     </div>
