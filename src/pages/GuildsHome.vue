@@ -32,6 +32,7 @@ export default Vue.extend({
               {query: ALL_GUILDS_QUERY}
             ).then(result => {
                 this.allGuilds = result.data.data.allGuilds.edges;
+                console.log(result.data.data);
                 result.data.data.allGuilds.edges
             }, error => {
                 console.error(error);

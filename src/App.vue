@@ -3,7 +3,7 @@
   <div id="app">
     
     <component :is="layout">
-      <router-view></router-view>
+      <router-view />
     </component>
   </div>
 </template>
@@ -16,7 +16,6 @@
     export default Vue.extend({
         computed: {
             layout() {
-              console.log(this);
                 return (this.$route.meta.layout || default_layout) + '-layout';
                 
             }
