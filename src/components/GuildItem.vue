@@ -1,8 +1,17 @@
 <template>
-    <section class="guild-item" v-bind:id="guild.node.id">
-        <h1>{{guild.node.name}}</h1>
-        <input type="checkbox" name="isActive" v-model="guild.node.isActive">
+    <section class="guild-item" v-bind:id="guild.guild.id">
+        <h1>{{guild.guild.name}}</h1>
+        <span class="joined-date">{{guild.guild.joinedDate | formatDate }}</span>
+        <section class="guild-domain">
+            <h1>Domain</h1>
+        </section>
+        <input type="checkbox" name="isActive" v-model="guild.guild.isActive">
         <label for="isActive">Active</label>
+        <section v-bind:id="guild.guild.owner.id" class="guild-owner">
+            <h1>Owner</h1>
+            <span>{{guild.guild.owner.username}}<span class="tag">#{{guild.guild.owner.tag}}</span></span>
+            <span>{{guild.guild.owner.email}}</span>
+        </section>
     </section>
 </template>
 

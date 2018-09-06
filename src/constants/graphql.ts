@@ -1,1 +1,21 @@
-export const ALL_GUILDS_QUERY = `query AllGuilds { allGuilds { edges { node { id name isActive } } } }`
+export const ALL_GUILDS_QUERY = `{
+  allGuilds {
+    edges {
+      guild: node {
+        name
+        id
+        joinedDate
+        guildDomain: guildsDomainByGuildId {
+          domain
+          isActive
+        }
+        owner: userByOwnerId {
+          id
+          username
+          tag
+          email
+        }
+      }
+    }
+  }
+}`
