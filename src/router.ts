@@ -1,13 +1,10 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 
 import Home from "./pages/Home.vue";
 import GuildsHome from "./pages/GuildsHome.vue";
 import NotFound from "./pages/NotFound.vue";
 
-Vue.use(Router);
-
-const base = "/";
 
 const routes = [
     {
@@ -25,12 +22,14 @@ const routes = [
     {
         path: "/*",
         name: "NotFound",
-        meta: { layout: "default" },
+        meta: { layout: "no-side-bar" },
         component: NotFound
     }
 ];
 
-export default new Router({
+Vue.use(VueRouter);
+
+export default new VueRouter({
     // mode: "history",
     // base,
     routes,
