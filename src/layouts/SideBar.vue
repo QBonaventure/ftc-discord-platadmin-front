@@ -1,6 +1,7 @@
 <template>
     <nav id="side-bar">
         <router-link to="/guilds">Guilds</router-link>
+        <router-link to="/resources">Resources</router-link>
     </nav>
 </template>
 

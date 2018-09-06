@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import Home from "./pages/Home.vue";
 import GuildsHome from "./pages/GuildsHome.vue";
 import NotFound from "./pages/NotFound.vue";
+import Resources from './pages/Resources.vue';
 
 
 const routes = [
@@ -18,6 +19,12 @@ const routes = [
         name: "GuildHome",
         meta: { layout: "default"},
         component: GuildsHome
+    },
+    {
+        path: "/resources",
+        name: "Resources",
+        meta: { layout: "default"},
+        component: Resources
     },
     {
         path: "/*",
