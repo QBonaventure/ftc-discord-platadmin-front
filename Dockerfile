@@ -1,9 +1,16 @@
-FROM node:8-alpine
+FROM node:9-alpine
 
-WORKDIR /server
+RUN npm install webpack webpack-cli -g
 
-COPY . /server
-RUN npm install
+WORKDIR /app
 
-EXPOSE 3000
-CMD [ "npm", "start" ]
+RUN echo "localhost platform-admin.ftcbot-dev.test" >> /etc/hosts && cat /etc/hosts 
+
+COPY . /app
+RUN npm config set registry http://registry.npmjs.org/ && npm install
+
+RUN npm run build
+
+
+CMD [ “/usr/local/bin/node”, “./dist/index.js” ]
+EXPOSE 3030
