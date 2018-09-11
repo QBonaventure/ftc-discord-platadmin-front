@@ -8,6 +8,48 @@
       :name="guild.name"
       :guild="guild">
     </guild-item>
+    <guild-item
+      v-for="guild in allGuilds"
+      :key="guild.id"
+      :name="guild.name"
+      :guild="guild">
+    </guild-item>
+    <guild-item
+      v-for="guild in allGuilds"
+      :key="guild.id"
+      :name="guild.name"
+      :guild="guild">
+    </guild-item>
+    <guild-item
+      v-for="guild in allGuilds"
+      :key="guild.id"
+      :name="guild.name"
+      :guild="guild">
+    </guild-item>
+    <guild-item
+      v-for="guild in allGuilds"
+      :key="guild.id"
+      :name="guild.name"
+      :guild="guild">
+    </guild-item>
+    <guild-item
+      v-for="guild in allGuilds"
+      :key="guild.id"
+      :name="guild.name"
+      :guild="guild">
+    </guild-item>
+    <guild-item
+      v-for="guild in allGuilds"
+      :key="guild.id"
+      :name="guild.name"
+      :guild="guild">
+    </guild-item>
+    <guild-item
+      v-for="guild in allGuilds"
+      :key="guild.id"
+      :name="guild.name"
+      :guild="guild">
+    </guild-item>
   </section>
 </template>
 
@@ -32,7 +74,6 @@ export default Vue.extend({
               {query: ALL_GUILDS_QUERY}
             ).then(result => {
                 this.allGuilds = result.data.data.allGuilds.edges;
-                console.log(result.data.data);
                 result.data.data.allGuilds.edges
             }, error => {
                 console.error(error);
@@ -43,5 +84,5 @@ export default Vue.extend({
 
 
 <style lang="scss">
-
+  
 </style>

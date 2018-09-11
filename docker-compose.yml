@@ -1,0 +1,31 @@
+version: "3.6"
+services:
+  application:
+#    image: node/8.11.4-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "npm run dev"
+    environment:
+      - NODE_ENV=development
+    volumes:
+        - ./src:/app/src
+    ports:
+        - "3030:3030"
+    labels:
+      traefik.enable: true
+      traefik.backend: discord_platadmin-front-server
+      traefik.frontend.rule: Host:platform-admin.ftcbot-dev.test
+      traefik.frontend.priority: 10
+      traefik.docker.network: traefik
+      traefik.port: 3030
+    restart: always
+    networks:
+      ftcbot_dev:
+      traefik:
+networks:
+  ftcbot_dev:
+    external: true
+  traefik:
+    external: true
+
