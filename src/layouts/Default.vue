@@ -31,7 +31,6 @@
     @import 'var';
 
     main {
-        width: 85%;
         min-height: calc(100% - #{$header-height});
         display: inline-block;
         height: auto;
@@ -40,6 +39,9 @@
 </style>
 
 <style lang="scss" scoped>
+    main {
+        width: 85%;
+    }
     div.wrapper {
         height: 100%;
     }

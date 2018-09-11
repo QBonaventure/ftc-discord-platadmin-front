@@ -14,6 +14,7 @@
 
 <style lang="scss" scoped>
     @import "var";
+
     nav {
         background-color: $ftc-black;
         width: 15%;
