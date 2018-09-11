@@ -28,7 +28,6 @@
     @import 'var';
 
     main {
-        width: 85%;
         min-height: calc(100% - #{$header-height});
         display: inline-block;
         height: auto;

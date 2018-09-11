@@ -17,7 +17,6 @@
         computed: {
             layout() {
                 return (this.$route.meta.layout || default_layout) + '-layout';
-                
             }
         },
         created() {
@@ -37,6 +36,7 @@
 
     html, body, main, div#app {
       height: 100%;
+      width: 100%;
       margin: 0;
     }
     
