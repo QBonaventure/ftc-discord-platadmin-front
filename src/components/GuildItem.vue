@@ -4,9 +4,9 @@
         <span class="joined-date">{{guild.guild.joinedDate | formatDate }}</span>
         <section class="guild-domain">
             <h1>Domain</h1>
+            <span v-if="guild.guild.guildDomain.isActive" class="active-domain">{{guild.guild.guildDomain.domain}}</span>
+            <span v-else class="inactive-domain">guild.guild.guildDomain.name</span>
         </section>
-        <input type="checkbox" name="isActive" v-model="guild.guild.isActive">
-        <label for="isActive">Active</label>
         <section v-bind:id="guild.guild.owner.id" class="guild-owner">
             <h1>Owner</h1>
             <span>{{guild.guild.owner.username}}<span class="tag">#{{guild.guild.owner.tag}}</span></span>
