@@ -37,8 +37,6 @@ const routes = [
 Vue.use(VueRouter);
 
 export default new VueRouter({
-    // mode: "history",
-    // base,
     routes,
     mode: "history"
 });
