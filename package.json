@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --port 3030 --watch --mode=development",
+    "dev": "webpack-dev-server --port 3030 --watch --mode=development --host=platform-admin.ftcbot-dev.test",
     "postinstall": "tsc -p .",
     "watch": "tsc -w -p .",
     "debug": "nodemon --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/build.js",
@@ -35,6 +35,10 @@
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.17",
     "webpack-dev-server": "^3.1.7"
+  },
+  "devServer": {
+    "compress": true,
+    "public": "platform-admin.ftcbot-dev.test"
   },
   "devDependencies": {
     "@types/node": "^6.0.117",
