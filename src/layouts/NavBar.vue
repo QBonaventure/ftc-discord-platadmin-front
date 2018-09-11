@@ -4,6 +4,9 @@
             <li>
                 <router-link to="/">Home</router-link>
             </li>
+            <li>
+                <a href="http://discord-oauth.fearthec.test/login">Login</a>
+            </li>
         </ul>
     </nav>
 </template>

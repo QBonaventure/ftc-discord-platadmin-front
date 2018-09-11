@@ -5,6 +5,14 @@ import Home from "./pages/Home.vue";
 import GuildsHome from "./pages/GuildsHome.vue";
 import NotFound from "./pages/NotFound.vue";
 import Resources from './pages/Resources.vue';
+import Login from './pages/Login.vue';
+
+const CLIENT_ID = '459649271566958593';
+const CLIENT_SECRET = 'oJFhXUcc3PIuemzbfpL5CompdlhlCTH_';
+const REDIRECT = encodeURIComponent('http://localhost:3030/login');
+
+let $loginUrl = 'https://discordapp.com/oauth2/authorize?client_id='+CLIENT_ID+'&scope=identify&response_type=code&redirect_uri='+REDIRECT;
+
 
 
 const routes = [
@@ -25,6 +33,16 @@ const routes = [
         name: "Resources",
         meta: { layout: "default"},
         component: Resources
+    },
+    {
+        path: "/login",
+        name: "Login",
+        meta: { layout: "default"},
+        component: Login
+    // },
+    //     beforeEnter: (to, from, next) => {
+    //         window.location.href=$loginUrl
+    //     }
     },
     {
         path: "/*",

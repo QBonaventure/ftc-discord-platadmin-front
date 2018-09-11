@@ -11,12 +11,15 @@
 
 <script lang="ts">
     import Vue from "vue";
+    import VueSession from 'vue-session';
     const default_layout = "default";
+
+    Vue.use(VueSession);
 
     export default Vue.extend({
         computed: {
             layout() {
-                return (this.$route.meta.layout || default_layout) + '-layout';
+                return default_layout + '-layout';
             }
         },
         created() {
