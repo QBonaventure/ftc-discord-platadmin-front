@@ -6,7 +6,6 @@
 <script lang="ts">
     import axios from "axios";
     import Vue from 'vue';
-    import JWTConfig from '../services/JWTConfig';
 
     const querystring = require('query-string');
     let jwt = require('jsonwebtoken');

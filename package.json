@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --port 3030 --watch --mode=development --host=0.0.0.0 --disable-host-check",
     "postinstall": "tsc -p .",
-    "watch": "tsc -w -p .",
+    "watch": "webpack --watch --mode=development",
     "debug": "nodemon --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/build.js",
     "docker-debug": "docker-compose up",
     "start": "node ./build/index.js"
@@ -37,6 +37,7 @@
     "vue-session": "^1.0.0",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.17",
+    "vuex": "^3.0.1",
     "webpack-dev-server": "^3.1.7"
   },
   "devServer": {

@@ -5,7 +5,9 @@
                 <router-link to="/">Home</router-link>
             </li>
             <li>
-                <a href="http://discord-oauth.fearthec.test/login">Login</a>
+                <a v-if="!user" href="http://discord-oauth.fearthec.test/login">Login</a>
+
+                <router-link v-else to="/logout">Logout</router-link>
             </li>
         </ul>
     </nav>
@@ -15,5 +17,10 @@
     import Vue from 'vue'
 
     export default Vue.extend({
+      data: function() {
+        return {
+          user: localStorage.getItem('user')
+          }
+        }
     })
 </script>

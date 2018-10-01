@@ -3,15 +3,11 @@ import VueRouter from 'vue-router';
 
 import Home from "./pages/Home.vue";
 import GuildsHome from "./pages/GuildsHome.vue";
+import GuildPage from './pages/GuildPage.vue';
 import NotFound from "./pages/NotFound.vue";
 import Resources from './pages/Resources.vue';
+import LoginCallback from './pages/LoginCallback.vue';
 import Login from './pages/Login.vue';
-
-const CLIENT_ID = '459649271566958593';
-const CLIENT_SECRET = 'oJFhXUcc3PIuemzbfpL5CompdlhlCTH_';
-const REDIRECT = encodeURIComponent('http://localhost:3030/login');
-
-let $loginUrl = 'https://discordapp.com/oauth2/authorize?client_id='+CLIENT_ID+'&scope=identify&response_type=code&redirect_uri='+REDIRECT;
 
 
 
@@ -29,27 +25,57 @@ const routes = [
         component: GuildsHome
     },
     {
+        path: "/guilds/:id",
+        name: "GuildPage",
+        meta: { layout: "default"},
+        component: GuildPage
+    },
+    {
         path: "/resources",
         name: "Resources",
         meta: { layout: "default"},
         component: Resources
     },
     {
+        path: "/login_callback",
+        name: "LoginCallback",
+        meta: { layout: "default"},
+        component: LoginCallback
+    },
+    {
         path: "/login",
         name: "Login",
         meta: { layout: "default"},
-        component: Login
-    // },
-    //     beforeEnter: (to, from, next) => {
-    //         window.location.href=$loginUrl
-    //     }
+        // component: Login,
+        beforeEnter(to, from, next) {
+          window.location.href = 'http://discord-oauth.fearthec.test/login';
+        }
     },
+    {
+        path: "/logout",
+        name: "Logout",
+        beforeEnter(to, from, next) {
+          localStorage.removeItem('user');
+          return next('/');
+
+        }
+    },
+    // {
+    //     path: "/login",
+    //     name: "Login",
+    //     meta: { layout: "default"},
+    //     component: Login
+    // // },
+    // //     beforeEnter: (to, from, next) => {
+    // //         window.location.href=$loginUrl
+    // //     }
+    // },
     {
         path: "/*",
         name: "NotFound",
         meta: { layout: "no-side-bar" },
         component: NotFound
-    }
+    },
 ];
 
 Vue.use(VueRouter);
