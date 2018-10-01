@@ -1,7 +1,7 @@
 <!-- src/App.vue -->
 <template>
   <div id="app">
-    
+
     <component :is="layout">
       <router-view />
     </component>
@@ -12,9 +12,23 @@
 <script lang="ts">
     import Vue from "vue";
     import VueSession from 'vue-session';
+    import router from './router';
     const default_layout = "default";
 
     Vue.use(VueSession);
+
+    router.beforeEach((to, from, next) => {
+      // redirect to login page if not logged in and trying to access a restricted page
+      const publicPages = ['/login', '/login_callback', '/logout', '/'];
+      const authRequired = !publicPages.includes(to.path);
+      const loggedIn = localStorage.getItem('user');
+console.log(loggedIn);
+      if (authRequired && !loggedIn) {
+        return next('/login');
+      }
+
+      next();
+    })
 
     export default Vue.extend({
         computed: {
@@ -42,7 +56,7 @@
       width: 100%;
       margin: 0;
     }
-    
+
     div#app > div.wrapper {
         position: absolute;
         width: 100%;
@@ -93,7 +107,7 @@
         }
     }
 
-    
+
 
     h1 {
       text-align: center;

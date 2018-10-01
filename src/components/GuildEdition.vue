@@ -1,18 +1,7 @@
 <template>
     <section class="guild-item" v-bind:id="guild.guild.id">
-        <h1><router-link :to="{ name: 'GuildPage', params: { id: guild.guild.id }}">{{guild.guild.name}}</router-link></h1>
-        <span class="joined-date">{{guild.guild.joinedDate | formatDate }}</span>
-        <section class="guild-domain">
-            <h1>Domain</h1>
-            <a v-if="guild.guild.guildDomain && guild.guild.guildDomain.isActive" v-bind:href="'http://'+guild.guild.guildDomain.domain" class="active-domain">{{guild.guild.guildDomain.domain}}</a>
-            <span v-else-if="guild.guild.guildDomain" class="inactive-domain">{{guild.guild.guildDomain.domain}}</span>
-            <span v-else class="inactive-domain">-</span>
-        </section>
-        <section v-bind:id="guild.guild.owner.id" class="guild-owner">
-            <h1>Owner</h1>
-            <span>{{guild.guild.owner.username}}<span class="tag">#{{guild.guild.owner.tag}}</span></span>
-            <span>{{guild.guild.owner.email}}</span>
-        </section>
+        <h1>{{guild.guild.name}}</h1>
+
     </section>
 </template>
 

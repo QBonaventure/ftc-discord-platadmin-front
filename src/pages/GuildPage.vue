@@ -2,37 +2,29 @@
   <section>
     <h1>Guilds List</h1>
 
-    <guild-item
-      v-for="guild in allGuilds"
-      :key="guild.id"
-      :name="guild.name"
-      :guild="guild">
-    </guild-item>
   </section>
 </template>
 
 <script lang="ts">
   import axios from "axios";
   import Vue from 'vue';
-  import { ALL_GUILDS_QUERY } from '../constants/graphql';
-  import GuildItem from '../components/GuildItem.vue';
+  import { GUILD_EDITION_QUERY } from '../constants/graphql';
+  import GuildEdition from '../components/GuildEdition.vue';
 
   export default Vue.extend({
-      // name: 'GuildsHome',
       data() {
           return {
-            allGuilds: []
+            guild: []
           }
       },
       components: {
-        GuildItem
+        GuildEdition
       },
       mounted() {
           axios.post("http://graphql.fearthec.test/graphql",
-            {query: ALL_GUILDS_QUERY}
+            {query: GUILD_EDITION_QUERY}
           ).then(result => {
-              this.allGuilds = result.data.data.allGuilds.edges;
-              result.data.data.allGuilds.edges
+              this.guild = result.data.data.allGuilds.edges;
           }, error => {
               console.error(error);
           });

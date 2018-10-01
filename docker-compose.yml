@@ -6,10 +6,13 @@ services:
       context: .
       dockerfile: Dockerfile
     command: sh -c "npm run dev"
+    # command: sh
+    tty: true
     environment:
       - NODE_ENV=development
     volumes:
         - ./src:/app/src
+        - ./package.json:/app/package.json
     ports:
         - "3030:3030"
     labels:
@@ -23,9 +26,9 @@ services:
     networks:
       ftcbot_dev:
       traefik:
+
 networks:
   ftcbot_dev:
     external: true
   traefik:
     external: true
-
