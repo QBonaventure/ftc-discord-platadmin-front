@@ -30,6 +30,10 @@
 <style lang="scss">
     @import 'var';
 
+    body {
+      position: relative;
+    }
+
     main {
         min-height: calc(100% - #{$header-height});
         display: inline-block;
@@ -46,5 +50,3 @@
         height: 100%;
     }
 </style>
-
-
