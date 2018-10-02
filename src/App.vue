@@ -1,7 +1,6 @@
 <!-- src/App.vue -->
 <template>
   <div id="app">
-
     <component :is="layout">
       <router-view />
     </component>
@@ -18,11 +17,10 @@
     Vue.use(VueSession);
 
     router.beforeEach((to, from, next) => {
-      // redirect to login page if not logged in and trying to access a restricted page
       const publicPages = ['/login', '/login_callback', '/logout', '/'];
       const authRequired = !publicPages.includes(to.path);
       const loggedIn = localStorage.getItem('user');
-console.log(loggedIn);
+
       if (authRequired && !loggedIn) {
         return next('/login');
       }

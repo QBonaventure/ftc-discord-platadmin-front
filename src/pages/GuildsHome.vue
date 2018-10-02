@@ -32,7 +32,6 @@
             {query: ALL_GUILDS_QUERY}
           ).then(result => {
               this.allGuilds = result.data.data.allGuilds.edges;
-              result.data.data.allGuilds.edges
           }, error => {
               console.error(error);
           });

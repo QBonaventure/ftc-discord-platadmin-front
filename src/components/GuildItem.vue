@@ -76,13 +76,8 @@
             }
         }
 
-        .active-domain {
-          color: green;
+        a {
+        color: inherit;
         }
-
-        .inactive-domain {
-          color: red;
-        }
-
     }
 </style>
