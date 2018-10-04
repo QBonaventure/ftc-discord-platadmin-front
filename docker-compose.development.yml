@@ -4,19 +4,24 @@ services:
 #    image: node/8.11.4-alpine
     build:
       context: .
-      dockerfile: Dockerfile
-    command: nginx -g 'daemon off';
+      dockerfile: Dockerfile-dev
+    command: sh -c "npm run dev"
+    # command: sh
     tty: true
     environment:
-      - NODE_ENV=production
-
+      - NODE_ENV=development
+    volumes:
+        - ./src:/app/src
+        - ./package.json:/app/package.json
+    ports:
+        - "3030:3030"
     labels:
       traefik.enable: true
       traefik.backend: discord_platadmin-front-server
       traefik.frontend.rule: Host:platform-admin.ftcbot-dev.test
       traefik.frontend.priority: 10
       traefik.docker.network: traefik
-      traefik.port: 80
+      traefik.port: 3030
     restart: always
     networks:
       ftcbot_dev:
